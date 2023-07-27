@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { LocalsModule } from './boards/locals.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { TypeORMConfig } from './configs/tpyeorm.config';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [  
+    TypeOrmModule.forRoot(TypeORMConfig),
+    LocalsModule
+  ],
 })
 export class AppModule {}
